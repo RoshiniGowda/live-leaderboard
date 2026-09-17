@@ -13,11 +13,13 @@ h1 { margin: 0; font: 600 clamp(56px, 7vw, 92px)/.98 'Playfair Display', Georgia
 .live { margin: 22px 0 26px; color: #b7c0ce; font: 400 22px/1.3 'Playfair Display', Georgia, serif; }
 .live span { width: 12px; height: 12px; border-radius: 50%; background: var(--green); display: inline-block; margin-right: 12px; box-shadow: 0 0 11px rgba(99,221,108,.5); }
 .board { list-style: none; margin: 0; padding: 21px 37px; text-align: left; color: var(--ink); background: var(--paper); border-radius: 11px; box-shadow: 0 18px 55px rgba(0,0,0,.15); }
-.leader-row { min-height: 98px; display: grid; grid-template-columns: 70px 83px 1fr; align-items: center; border-bottom: 1px solid var(--rule); font-family: 'Playfair Display', Georgia, serif; }
+.leader-row { min-height: 98px; display: grid; grid-template-columns: 70px 83px minmax(0, 1fr) auto; align-items: center; gap: 0 14px; border-bottom: 1px solid var(--rule); font-family: 'Playfair Display', Georgia, serif; }
 .leader-row:last-child { border-bottom: 0; }
 .rank { font-size: 50px; line-height: 1; }
 .leader-name { font-size: clamp(31px, 3.1vw, 42px); line-height: 1.1; }
 .leader-row:not(.rank-1):not(.rank-2):not(.rank-3) .leader-name { grid-column: 3; }
+.leader-points { color: #53657a; font: 600 clamp(22px, 2.4vw, 32px)/1 'Source Sans 3', Arial, sans-serif; text-align: right; white-space: nowrap; }
+.leader-points small { color: #8290a0; font: 11px/1 'DM Mono', monospace; letter-spacing: .08em; }
 .crown { font-size: 39px; line-height: 1; }
 .crown-1, .rank-1 .rank { color: var(--gold); }.crown-2, .rank-2 .rank { color: var(--silver); }.crown-3, .rank-3 .rank { color: var(--bronze); }
 footer { margin: 73px 0 36px; text-align: center; color: #a5afbf; text-transform: uppercase; letter-spacing: .34em; font: 12px/1 'DM Mono', monospace; }
@@ -27,7 +29,7 @@ footer { margin: 73px 0 36px; text-align: center; color: #a5afbf; text-transform
 table { width: 100%; border-collapse: collapse; }th { text-align: left; padding: 17px 0 12px; color: #6f7b86; font: 12px/1 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }td { border-top: 1px solid var(--rule); padding: 16px 0; font: 500 23px/1.2 'Playfair Display', Georgia, serif; }.rank-cell { width: 82px; color: #718090; }input { width: 118px; padding: 10px 11px; color: var(--ink); border: 1px solid #b7c0c5; border-radius: 4px; background: white; font: 600 17px/1 'Source Sans 3', sans-serif; }.name-input { width: min(100%, 280px); font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 500; }.actions { display: flex; align-items: center; justify-content: space-between; padding-top: 25px; }#saved { color: #177d38; font-weight: 600; }button { border: 0; border-radius: 4px; padding: 13px 20px; cursor: pointer; background: var(--ink); color: white; font: 600 16px/1 'Source Sans 3', sans-serif; }button:hover { background: #123a66; }.admin-note { color: #b8c3d0; margin: 21px 0; font-size: 16px; }.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
 .new-student { display: grid; grid-template-columns: minmax(180px, 1fr) 150px auto; align-items: end; gap: 13px; padding: 22px 0 0; }.new-student label { display: grid; gap: 7px; color: #6f7b86; font: 11px/1 'DM Mono', monospace; letter-spacing: .09em; text-transform: uppercase; }.new-student input { width: 100%; }.add-student { background: transparent; color: var(--ink); border: 1px solid #a9b3bb; }.add-student:hover { color: white; background: var(--ink); }
 @media (max-width: 600px) { .new-student { grid-template-columns: 1fr; }.new-student .add-student { justify-self: start; } }
-@media (max-width: 600px) { header { height: 76px; padding: 21px 22px; }.brand { font-size: 21px; gap: 10px; }.star { font-size: 37px; }.admin-link { font-size: 15px; }.board-wrap { padding: 38px 14px 0; }.live { font-size: 18px; }.board { padding: 10px 20px; }.leader-row { min-height: 74px; grid-template-columns: 43px 48px 1fr; }.rank { font-size: 35px; }.leader-name { font-size: 25px; }.crown { font-size: 27px; }footer { margin-top: 48px; font-size: 9px; }.admin-wrap { margin: 35px auto; }#points-form { padding: 8px 20px 22px; }td { font-size: 19px; }.rank-cell { width: 47px; }input { width: 88px; }.actions { gap: 12px; } }
+@media (max-width: 600px) { header { height: 76px; padding: 21px 22px; }.brand { font-size: 19px; gap: 10px; }.star { font-size: 37px; }.admin-link { font-size: 15px; }.board-wrap { padding: 38px 14px 0; }.live { font-size: 18px; }.board { padding: 10px 20px; }.leader-row { min-height: 74px; grid-template-columns: 43px 32px minmax(0, 1fr) auto; gap: 0 6px; }.rank { font-size: 35px; }.leader-name { font-size: 25px; }.leader-points { font-size: 18px; }.leader-points small { display: none; }.crown { font-size: 27px; }footer { margin-top: 48px; font-size: 9px; }.admin-wrap { margin: 35px auto; }#points-form { padding: 8px 20px 22px; }td { font-size: 19px; }.rank-cell { width: 47px; }input { width: 88px; }.actions { gap: 12px; } }
 
 /* Portrait projector view: keeps the public top-ten board large and balanced on a vertical screen. */
 @media (orientation: portrait) and (min-width: 601px) {
@@ -36,9 +38,10 @@ table { width: 100%; border-collapse: collapse; }th { text-align: left; padding:
   .board-wrap h1 { font-size: clamp(58px, 8vw, 88px); }
   .live { margin: 1.5vh 0 2.6vh; font-size: clamp(19px, 2.4vw, 27px); }
   .board { padding: 1.1vh 4vw; border-radius: 13px; }
-  .leader-row { min-height: clamp(70px, 7.4vh, 126px); grid-template-columns: clamp(48px, 7vw, 76px) clamp(58px, 8vw, 90px) 1fr; }
+  .leader-row { min-height: clamp(70px, 7.4vh, 126px); grid-template-columns: clamp(48px, 7vw, 76px) clamp(58px, 8vw, 90px) minmax(0, 1fr) auto; }
   .rank { font-size: clamp(38px, 5.4vw, 58px); }
   .crown { font-size: clamp(29px, 4.4vw, 47px); }
   .leader-name { font-size: clamp(31px, 5vw, 53px); }
+  .leader-points { font-size: clamp(23px, 3.2vw, 38px); }
   footer { margin: 4.3vh 0 3vh; }
 }
