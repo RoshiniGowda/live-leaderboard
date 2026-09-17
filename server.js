@@ -7,7 +7,7 @@ const type = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=u
 
 http.createServer((req, res) => {
   const url = new URL(req.url, 'http://localhost');
-  const requested = url.pathname === '/' || url.pathname === '/admin' ? 'index.html' : url.pathname.slice(1);
+  const requested = url.pathname === '/' ? 'index.html' : (url.pathname === '/admin' || url.pathname === '/admin/' ? 'admin/index.html' : url.pathname.slice(1));
   const file = path.join(root, requested);
   if (!file.startsWith(root) || !fs.existsSync(file)) { res.writeHead(404); res.end('Not found'); return; }
   res.writeHead(200, { 'Content-Type': type[path.extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-store' });
